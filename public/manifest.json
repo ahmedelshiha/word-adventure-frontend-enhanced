@@ -1,0 +1,120 @@
+{
+  "name": "Word Adventure - Kids Learning",
+  "short_name": "Word Adventure",
+  "description": "A delightful and interactive vocabulary learning application designed specifically for children",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["education", "kids", "learning"],
+  "icons": [
+    {
+      "src": "/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Word Adventure Dashboard"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Word Adventure Mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Learning",
+      "short_name": "Learn",
+      "description": "Start learning new words",
+      "url": "/library",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Take Quiz",
+      "short_name": "Quiz",
+      "description": "Test your knowledge",
+      "url": "/test",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "View Progress",
+      "short_name": "Progress",
+      "description": "Check your learning progress",
+      "url": "/progress",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+
