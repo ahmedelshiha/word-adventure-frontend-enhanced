@@ -1,3 +1,4 @@
+// Updated: Enhanced with category support and 200-word dataset
 import { useState, useEffect, createContext, useContext } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
