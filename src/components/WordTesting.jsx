@@ -294,16 +294,16 @@ const WordTesting = () => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {currentWord.imageType === 'url' || currentWord.imageType === 'upload' ? (
+                    {currentWord.image_url ? (
                       <ImageFallback
-                        src={currentWord.image}
+                        src={currentWord.image_url}
                         alt={currentWord.word}
                         className="w-full h-full object-cover"
-                        fallbackEmoji="❓"
+                        fallbackEmoji={currentWord.emoji || "❓"}
                         showRetry={true}
                       />
                     ) : (
-                      <div className="text-8xl">{currentWord.image}</div>
+                      <div className="text-8xl">{currentWord.emoji || "❓"}</div>
                     )}
                   </motion.div>         {/* Word Text */}
             <motion.h2 
