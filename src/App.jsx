@@ -1,3 +1,4 @@
+// Updated: Enhanced with category support and 200-word dataset
 import { useState, useEffect, createContext, useContext } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -131,25 +132,36 @@ function App() {
       try {
         const apiCategories = await api.getCategories()
         if (apiCategories && apiCategories.length > 0) {
-          setCategories(apiCategories)
-        } else {
-          // Load saved categories from localStorage
-          const savedCategories = localStorage.getItem('word_adventure_categories')
-          if (savedCategories) {
-            try {
-              const parsedCategories = JSON.parse(savedCategories)
-              // Merge with enhanced categories
-              const mergedCategories = [...enhancedCategories, ...parsedCategories.filter(cat => 
-                !enhancedCategories.some(ec => ec.id === cat.id)
-              )]
-              setCategories(mergedCategories)
-            } catch (error) {
-              console.error('Error parsing saved categories:', error)
-            }
+          // Check if we got proper category objects with required fields
+          const validCategories = apiCategories.filter(cat => cat.id && cat.name && cat.emoji)
+          if (validCategories.length > 0) {
+            setCategories(validCategories)
+            console.log('Loaded categories from API:', validCategories.length)
+          } else {
+            throw new Error('Invalid category format from API')
           }
+        } else {
+          throw new Error('No categories returned from API')
         }
       } catch (error) {
-        console.warn('Failed to load categories from API, using local data')
+        console.warn('Failed to load categories from API, using local data:', error.message)
+        // Use enhanced categories as fallback
+        setCategories(enhancedCategories)
+
+        // Also try localStorage fallback
+        const savedCategories = localStorage.getItem('word_adventure_categories')
+        if (savedCategories) {
+          try {
+            const parsedCategories = JSON.parse(savedCategories)
+            // Merge with enhanced categories
+            const mergedCategories = [...enhancedCategories, ...parsedCategories.filter(cat =>
+              !enhancedCategories.some(ec => ec.id === cat.id)
+            )]
+            setCategories(mergedCategories)
+          } catch (error) {
+            console.error('Error parsing saved categories:', error)
+          }
+        }
       }
       
       // Load other saved data
