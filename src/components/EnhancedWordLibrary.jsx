@@ -191,11 +191,14 @@ const EnhancedWordLibrary = () => {
         <CardContent className="p-6 text-center space-y-4">
           <div className="relative">
             <div className="text-6xl mb-3">
-              {word.image.startsWith('data:') ? (
-                <img src={word.image} alt={word.word} className="w-16 h-16 mx-auto object-cover rounded-lg" />
-              ) : (
-                word.image
-              )}
+{word.image_url ? (
+  <img src={word.image_url} alt={word.word} className="w-16 h-16 mx-auto object-cover rounded-lg" />
+) : word.emoji ? (
+  word.emoji
+) : (
+  '📝'
+)}
+              
             </div>
             {word.known && (
               <CheckCircle className="absolute -top-2 -right-2 w-6 h-6 text-green-500 bg-white rounded-full" />
