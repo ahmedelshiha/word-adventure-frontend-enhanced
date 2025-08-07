@@ -11,10 +11,10 @@
   status = 200
 
 [context.production.environment]
-  VITE_API_BASE_URL = "https://word-adventure-kids-dashboard-production.up.railway.app/api"
+  VITE_API_BASE_URL = "https://web-production-3b1f.up.railway.app/api"
 
 [context.deploy-preview.environment]
-  VITE_API_BASE_URL = "https://word-adventure-kids-dashboard-production.up.railway.app/api"
+  VITE_API_BASE_URL = "https://web-production-3b1f.up.railway.app/api"
 
 [context.branch-deploy.environment]
-  VITE_API_BASE_URL = "https://word-adventure-kids-dashboard-production.up.railway.app/api"
+  VITE_API_BASE_URL = "https://web-production-3b1f.up.railway.app/api"
