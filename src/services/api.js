@@ -331,10 +331,16 @@ class WordAdventureAPI {
   // Category operations
   async getCategories() {
     try {
-      return await this.request('/categories')
+      const response = await this.request('/categories')
+      if (response && response.categories) {
+        return response.categories
+      }
+      return response || []
     } catch (error) {
       console.warn('Failed to fetch categories from API, using local data')
-      return ['food', 'animals', 'colors', 'numbers', 'family', 'body', 'nature']
+      // Import local categories data as fallback
+      const { enhancedCategories } = await import('../data/wordsDatabase.js')
+      return enhancedCategories || []
     }
   }
 
@@ -410,4 +416,3 @@ export const {
   bulkImportWords,
   healthCheck
 } = api
-
