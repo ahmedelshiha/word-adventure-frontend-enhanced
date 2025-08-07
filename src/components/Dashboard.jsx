@@ -94,6 +94,9 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8">
+      {/* Category Initializer - Temporary for setup */}
+      <CategoryInitializer />
+
       {/* Welcome Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
