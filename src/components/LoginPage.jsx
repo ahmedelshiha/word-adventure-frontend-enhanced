@@ -5,6 +5,7 @@ import { Input } from './ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { useAuth } from '../App'
 import { User, Lock, Sparkles, Mail, UserPlus } from 'lucide-react'
+import PasswordReset from './PasswordReset'
 
 const LoginPage = () => {
   const [username, setUsername] = useState('')
@@ -14,6 +15,7 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [isRegistering, setIsRegistering] = useState(false)
+  const [showPasswordReset, setShowPasswordReset] = useState(false)
   const { login, register } = useAuth()
 
   const handleSubmit = async (e) => {
@@ -23,6 +25,18 @@ const LoginPage = () => {
 
     if (isRegistering) {
       // Registration validation
+      if (!email.trim()) {
+        setError('Email address is required')
+        setLoading(false)
+        return
+      }
+
+      if (!/\S+@\S+\.\S+/.test(email.trim())) {
+        setError('Please enter a valid email address')
+        setLoading(false)
+        return
+      }
+
       if (password !== confirmPassword) {
         setError('Passwords do not match')
         setLoading(false)
@@ -44,7 +58,7 @@ const LoginPage = () => {
       const result = await register({
         username: username.trim(),
         password,
-        email: email.trim() || undefined
+        email: email.trim()
       })
       
       if (!result.success) {
@@ -75,6 +89,11 @@ const LoginPage = () => {
     setPassword('')
     setEmail('')
     setConfirmPassword('')
+  }
+
+  // Show password reset component if requested
+  if (showPasswordReset) {
+    return <PasswordReset onBack={() => setShowPasswordReset(false)} />
   }
 
   return (
@@ -161,10 +180,11 @@ const LoginPage = () => {
                     <Mail className="absolute left-3 top-3 h-5 w-5 text-purple-500" />
                     <Input
                       type="email"
-                      placeholder="Email (optional)"
+                      placeholder="Email address"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="pl-10 h-12 text-lg rounded-2xl border-2 border-purple-200 focus:border-purple-400"
+                      required
                     />
                   </div>
                 </motion.div>
@@ -245,6 +265,17 @@ const LoginPage = () => {
               >
                 {isRegistering ? 'Already have an account? Sign in!' : 'New to Word Adventure? Create account!'}
               </Button>
+              
+              {!isRegistering && (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => setShowPasswordReset(true)}
+                  className="text-purple-600 hover:text-purple-800 hover:bg-purple-50 text-sm"
+                >
+                  Forgot your password?
+                </Button>
+              )}
               
               <p className="text-sm text-purple-600">
                 Want to try first?

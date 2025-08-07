@@ -230,7 +230,17 @@ const Dashboard = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-center space-y-4"
                   >
-                    <div className="text-8xl mb-4">{currentWord.image}</div>
+                    <div className="text-8xl mb-4">
+                      {currentWord.image_url ? (
+                        <img 
+                          src={currentWord.image_url} 
+                          alt={currentWord.word}
+                          className="w-24 h-24 mx-auto object-cover rounded-lg"
+                        />
+                      ) : (
+                        currentWord.emoji || currentWord.image || '📚'
+                      )}
+                    </div>
                     <h2 className="text-4xl font-bold text-gray-800 mb-2">{currentWord.word}</h2>
                     
                     {currentWord.pronunciation && (
