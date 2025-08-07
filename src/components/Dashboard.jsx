@@ -5,6 +5,7 @@ import { Button } from './ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
 import { useApp } from '../App'
+import CategoryInitializer from './CategoryInitializer'
 import { 
   Volume2, 
   Play, 
@@ -304,4 +305,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
