@@ -299,11 +299,11 @@ const WordTesting = () => {
                         src={currentWord.image_url}
                         alt={currentWord.word}
                         className="w-full h-full object-cover"
-                        fallbackEmoji={currentWord.emoji || "❓"}
+                        fallbackEmoji={currentWord.emoji || currentWord.image || "❓"}
                         showRetry={true}
                       />
                     ) : (
-                      <div className="text-8xl">{currentWord.emoji || "❓"}</div>
+                      <div className="text-8xl">{currentWord.emoji || currentWord.image || "❓"}</div>
                     )}
                   </motion.div>         {/* Word Text */}
             <motion.h2 
