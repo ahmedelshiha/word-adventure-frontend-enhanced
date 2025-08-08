@@ -14,8 +14,8 @@ const CategoryInitializer = () => {
     setMessage('Initializing categories...')
 
     try {
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://web-production-3b1f.up.railway.app/api'
-      
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://web-production-e17b.up.railway.app/api'
+
       // First check backend health
       const healthResponse = await fetch(`${API_BASE_URL}/health`)
       if (!healthResponse.ok) {
