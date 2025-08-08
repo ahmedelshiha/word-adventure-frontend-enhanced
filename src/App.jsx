@@ -109,7 +109,14 @@ function App() {
       try {
         const apiWords = await api.getWords()
         if (apiWords && apiWords.length > 0) {
-          setWords(apiWords)
+          // Transform API words to ensure compatibility with both image_url and image fields
+          const transformedWords = apiWords.map(word => ({
+            ...word,
+            // Ensure both emoji and image fields are available for backward compatibility
+            emoji: word.emoji || word.image || "❓",
+            image: word.image || word.emoji || "❓"
+          }))
+          setWords(transformedWords)
         } else {
           // Load saved words progress from localStorage
           const savedWords = localStorage.getItem('word_adventure_words')
