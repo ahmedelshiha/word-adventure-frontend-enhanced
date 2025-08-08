@@ -577,6 +577,7 @@ function AuthenticatedApp() {
           <Route path="/settings" element={<ParentSettings />} />
           <Route path="/api-test" element={<ApiTest />} />
           <Route path="/connection-test" element={<ApiConnectionTest />} />
+          <Route path="/debug-test" element={<ApiDebugTest />} />
         </Routes>
       </AnimatePresence>
     </Layout>
