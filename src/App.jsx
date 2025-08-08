@@ -16,6 +16,7 @@ import PWAInstallPrompt from './components/PWAInstallPrompt'
 import OfflineIndicator from './components/OfflineIndicator'
 import ApiTest from './components/ApiTest'
 import ApiConnectionTest from './components/ApiConnectionTest'
+import ApiDebugTest from './components/ApiDebugTest'
 import api from './services/api'
 import { useOfflineSync } from './hooks/useOfflineSync'
 import './App.css'
@@ -576,6 +577,7 @@ function AuthenticatedApp() {
           <Route path="/settings" element={<ParentSettings />} />
           <Route path="/api-test" element={<ApiTest />} />
           <Route path="/connection-test" element={<ApiConnectionTest />} />
+          <Route path="/debug-test" element={<ApiDebugTest />} />
         </Routes>
       </AnimatePresence>
     </Layout>
