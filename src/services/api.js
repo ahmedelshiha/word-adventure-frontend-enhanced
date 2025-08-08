@@ -166,9 +166,21 @@ class WordAdventureAPI {
   }
 
   getDemoWords() {
-    return [
+    // Import and transform local words database to match API format
+    const { wordsDatabase } = require('../data/wordsDatabase.js')
+    return wordsDatabase.map(word => ({
+      id: word.id,
+      word: word.word.toLowerCase(),
+      pronunciation: word.pronunciation,
+      definition: word.definition,
+      example: word.example,
+      fun_fact: word.funFact,
+      emoji: word.image, // Map image field to emoji for compatibility
+      category: word.category,
+      difficulty: word.difficulty
+    })).concat([
       {
-        id: 1,
+        id: 1001,
         word: 'apple',
         pronunciation: '/ˈæpəl/',
         definition: 'A round fruit with red or green skin',
@@ -179,7 +191,7 @@ class WordAdventureAPI {
         difficulty: 'easy'
       },
       {
-        id: 2,
+        id: 1002,
         word: 'banana',
         pronunciation: '/bəˈnænə/',
         definition: 'A long yellow fruit',
@@ -190,7 +202,7 @@ class WordAdventureAPI {
         difficulty: 'easy'
       },
       {
-        id: 3,
+        id: 1003,
         word: 'cat',
         pronunciation: '/kæt/',
         definition: 'A small furry pet animal that meows',
@@ -201,7 +213,7 @@ class WordAdventureAPI {
         difficulty: 'easy'
       },
       {
-        id: 4,
+        id: 1004,
         word: 'dog',
         pronunciation: '/dɔːɡ/',
         definition: 'A friendly pet animal that barks',
@@ -212,7 +224,7 @@ class WordAdventureAPI {
         difficulty: 'easy'
       },
       {
-        id: 5,
+        id: 1005,
         word: 'elephant',
         pronunciation: '/ˈeləfənt/',
         definition: 'A large gray animal with a long trunk',
@@ -222,7 +234,7 @@ class WordAdventureAPI {
         category: 'animals',
         difficulty: 'medium'
       }
-    ]
+    ])
   }
 
   async createWord(word) {
