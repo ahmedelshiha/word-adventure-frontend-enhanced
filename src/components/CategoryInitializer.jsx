@@ -66,8 +66,8 @@ const CategoryInitializer = () => {
     setMessage('Testing categories API...')
 
     try {
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://web-production-3b1f.up.railway.app/api'
-      
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://web-production-e17b.up.railway.app/api'
+
       const response = await fetch(`${API_BASE_URL}/categories`)
       if (!response.ok) {
         throw new Error(`API returned ${response.status}: ${response.statusText}`)
