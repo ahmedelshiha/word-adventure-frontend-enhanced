@@ -15,6 +15,7 @@ import LoadingSpinner from './components/LoadingSpinner'
 import PWAInstallPrompt from './components/PWAInstallPrompt'
 import OfflineIndicator from './components/OfflineIndicator'
 import ApiTest from './components/ApiTest'
+import ApiConnectionTest from './components/ApiConnectionTest'
 import api from './services/api'
 import { useOfflineSync } from './hooks/useOfflineSync'
 import './App.css'
@@ -574,6 +575,7 @@ function AuthenticatedApp() {
           <Route path="/progress" element={<ProgressDashboard />} />
           <Route path="/settings" element={<ParentSettings />} />
           <Route path="/api-test" element={<ApiTest />} />
+          <Route path="/connection-test" element={<ApiConnectionTest />} />
         </Routes>
       </AnimatePresence>
     </Layout>
