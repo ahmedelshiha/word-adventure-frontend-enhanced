@@ -221,6 +221,39 @@ class WordAdventureAPI {
         emoji: '🐘',
         category: 'animals',
         difficulty: 'medium'
+      },
+      {
+        id: 6,
+        word: 'lion',
+        pronunciation: '/ˈlaɪən/',
+        definition: 'The king of the jungle with a big mane',
+        example: 'Lions roar very loudly',
+        fun_fact: 'A lion\'s roar can be heard 5 miles away!',
+        emoji: '🦁',
+        category: 'animals',
+        difficulty: 'easy'
+      },
+      {
+        id: 7,
+        word: 'house',
+        pronunciation: '/haʊs/',
+        definition: 'A building where people live',
+        example: 'My house has a red door',
+        fun_fact: 'The oldest house is 9,000 years old!',
+        emoji: '🏠',
+        category: 'objects',
+        difficulty: 'easy'
+      },
+      {
+        id: 8,
+        word: 'car',
+        pronunciation: '/kɑːr/',
+        definition: 'A vehicle with four wheels',
+        example: 'We drive to school in our car',
+        fun_fact: 'The first car had three wheels!',
+        emoji: '🚗',
+        category: 'objects',
+        difficulty: 'easy'
       }
     ]
   }

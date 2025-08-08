@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -401,4 +399,3 @@ html {
     background-position: 200% 0;
   }
 }
-
